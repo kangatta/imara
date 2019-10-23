@@ -1,7 +1,6 @@
 
 <?php
   session_start(); 
-  include ("connection.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,29 +51,18 @@
         <?php 
         //include ('sesh.php');
        include ('head.php');
-       
+
         ?>
 
 
 <button type="button" class="collapsible" style="width:885px; margin-left: 250px;">VIEW RECOMMENDED MEALPLAN</button>
 <div class="content" class="col-md-4" style="width:870px; margin-left: 250px;">
   
-  <button type="button" class="collapsible" style="width:850px; margin-left:0px; margin-right: 5px;">VIEW RECOMMENDED MEALPLAN</button>
+  <button type="button" class="collapsible" style="width:850px; margin-left:0px; margin-right: 5px;">BREAKFAST</button>
     <div class="content" class="col-md-4" style="width:850px; margin-left: 0px;">
   <div class="row" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:cover; width:800px; float:center; margin-left:9px; box-shadow: 10px 10px 8px #888888; background-color: white;">
 
-     
-        <?php
-          
-          include('connection.php');
-          $query=mysqli_query($conn,"select * from protein order by rand() limit 1");
-          while($row=mysqli_fetch_array($query)){
-            ?> 
-            <?php
-          }
-        ?>
-    
-                <div class="col-md-4">
+         <div class="col-md-4">
         <div class="form-group"> 
           <?php
           include('connection.php');
@@ -83,9 +71,7 @@
           {
             echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
+
             }
             ?>
                 </div>
@@ -94,14 +80,10 @@
           <div class="form-group">
                 <?php
           include('connection.php');
-          $query=mysqli_query($conn,"select * from breakfast_carbs order by rand() limit 2");
+          $query=mysqli_query($conn,"select * from breakfast_carbs order by rand() limit 1");
           while($row=mysqli_fetch_array($query))
           {
             echo 'Carbohydrates<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
             }
             ?>
@@ -111,14 +93,10 @@
           <div class="form-group">
                     <?php
           include('connection.php');
-          $query=mysqli_query($conn,"select * from fruits order by rand() limit 2");
+          $query=mysqli_query($conn,"select * from fruits order by rand() limit 1");
           while($row=mysqli_fetch_array($query))
           {
             echo 'Fruit/vegetable<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
             }
             ?>
@@ -136,12 +114,9 @@
         <div class="form-group">
           <?php
           include('connection.php');
-          $query=mysqli_query($conn,"select * from protein order by rand() limit 2");
+          $query=mysqli_query($conn,"select * from protein order by rand() limit 1");
           while($row=mysqli_fetch_array($query))
           {
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
             echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
             }
@@ -152,13 +127,10 @@
           <div class="form-group">
                 <?php
           include('connection.php');
-          $query=mysqli_query($conn,"select * from carbs order by rand() limit 2");
+          $query=mysqli_query($conn,"select * from carbs order by rand() limit 1");
           while($row=mysqli_fetch_array($query))
           {
             echo 'Carbohydrates<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
             }
             ?>
@@ -168,13 +140,10 @@
           <div class="form-group">
                     <?php
           include('connection.php');
-          $query=mysqli_query($conn,"select * from vitamins order by rand() limit 2");
+          $query=mysqli_query($conn,"select * from vitamins order by rand() limit 1");
           while($row=mysqli_fetch_array($query))
           {
             echo 'Fruit/vegetable<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
             }
             ?>
@@ -184,7 +153,7 @@
             </div><br><br>
 
         <!--supper-->
-  <button type="button" class="collapsible" style="width:850px; margin-left:0px; margin-right: 5px;">VIEW RECOMMENDED MEALPLAN</button>
+  <button type="button" class="collapsible" style="width:850px; margin-left:0px; margin-right: 5px;">SUPPER</button>
     <div class="content" class="col-md-4" style="width:850px; margin-left: 0px;">
   <div class="row" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:cover; width:800px; float:center; margin-left:9px; box-shadow: 10px 10px 8px #888888; background-color: white;">
 
@@ -192,12 +161,9 @@
         <div class="form-group">
           <?php
           include('connection.php');
-          $query=mysqli_query($conn,"select * from protein order by rand() limit 2");
+          $query=mysqli_query($conn,"select * from protein order by rand() limit 1");
           while($row=mysqli_fetch_array($query))
           {
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
             echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
             }
@@ -209,16 +175,16 @@
            
                 <?php
           include('connection.php');
-          $query=mysqli_query($conn,"select * from carbs order by rand() limit 2");
+          $query=mysqli_query($conn,"select * from carbs order by rand() limit 1");
           while($row=mysqli_fetch_array($query))
           {
             echo 'Carbohydrates<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
             }
             ?>
+            <form method="POST">
+            <input style="margin-left:70px;" type="submit" name="refresh" value="Refresh" class="btn btn-primary">
+          </form>
                 </div>
                </div>
                <div class="col-md-4">
@@ -226,13 +192,10 @@
            
                     <?php
           include('connection.php');
-          $query=mysqli_query($conn,"select * from fruits order by rand() limit 2");
+          $query=mysqli_query($conn,"select * from fruits order by rand() limit 1");
           while($row=mysqli_fetch_array($query))
           {
             echo 'Fruit/vegetable<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
-            echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
-            echo 'OR <br><br>';
-            echo 'Proteins<br><input type="text" class="form-control" value='.$row['name'].'><br/>';
             echo 'quantity<br> <input type="text" class="form-control" value='.$row['quantity'].'><br/>';
             }
             ?>
@@ -240,15 +203,160 @@
                </div>
                <div class="col-md-4">
                <form method="POST">
-      <input type="submit" name="refresh" value="Refresh" class="btn btn-primary">
+      
     </form>
                 </div>
               </div>
             </div><br><br>
-         
-        
+            </div><br><br>
+<button type="button" class="collapsible" style="width:885px; margin-left: 250px;">CUSTOMIZE YOUR MEALPLAN</button>
+<div class="content" class="col-md-4" style="width:885px; margin-left: 250px; ">
+  <div class="row" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:cover; width:800px; float:center; margin-left:25px; box-shadow: 10px 10px 8px #888888; background-color: white;">
+           	
+            <?php
+            require('connection.php');
+            $query="SELECT * FROM `breakfast_protein`";
+            $res=mysqli_query($conn, $query);
+             ?>
+                <div class="col-md-4">
+    		<div class="form-group">
+                <h2>Breakfast</h2>
+                <label for="name">Proteins</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div>
 
+               <?php
+            $query="SELECT * FROM `breakfast_carbs`";
+            $res=mysqli_query($conn, $query);
+             ?>
+                 <div class="col-md-4">
+    			<div class="form-group">
+    				<br><br>
+                <label for="name">Carbohydrates</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div>
 
+                 <?php
+            $query="SELECT * FROM `fruits`";
+            $res=mysqli_query($conn, $query);
+             ?>
+               <div class="col-md-4">
+    			<div class="form-group">
+    				<br><br>
+                <label for="name">Vitamins</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div>
+    		<!---->
+    		<?php
+            $query="SELECT * FROM `protein`";
+            $res=mysqli_query($conn, $query);
+             ?>
+                <div class="col-md-4">
+        <div class="form-group">
+                <h2>Lunch</h2>
+                <label for="name">Proteins</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div>
+                 
+                 <?php
+            $query="SELECT * FROM `carbs` ";
+            $res=mysqli_query($conn, $query);
+             ?>
+                 <div class="col-md-4">
+          <div class="form-group">
+            <br><br>
+                <label for="name">Carbohydrates</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div>
+
+               <?php
+            $query="SELECT * FROM `vitamins`";
+            $res=mysqli_query($conn, $query);
+             ?>
+               <div class="col-md-4">
+          <div class="form-group">
+            <br><br>
+                <label for="name">Vitamins</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div>
+    		
+    		<!---->
+
+    		 <?php
+            $query="SELECT * FROM `protein`";
+            $res=mysqli_query($conn, $query);
+             ?>
+                <div class="col-md-4">
+        <div class="form-group">
+                <h2>Supper</h2>
+                <label for="name">Proteins</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div>
+                 
+                 <?php
+            $query="SELECT * FROM `carbs`";
+            $res=mysqli_query($conn, $query);
+             ?>
+                 <div class="col-md-4">
+          <div class="form-group">
+            <br><br>
+                <label for="name">Carbohydrates</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div>
+
+               <?php
+            $query="SELECT * FROM `vitamins`";
+            $res=mysqli_query($conn, $query);
+             ?>
+               <div class="col-md-4">
+          <div class="form-group">
+            <br><br>
+                <label for="name">Vitamins</label>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
+                </div>
+               </div><br><br>
+        <div class="col-md-4">
+            <input type="submit" name="Save" value="save" class="btn btn-primary" style="margin-left: 30q0px; width:150px;">
+                </div><br><br>
+        <!---->
+
+    		</div><br>
+</div>
 <script>
 var coll = document.getElementsByClassName("collapsible");
 var i;

@@ -1,5 +1,10 @@
 <?php 
  //esatablish a connection
-  $conn=mysqli_connect("localhost","root","","test");//change to csproject
+  $conn=mysqli_connect("localhost","root","","csproject");//change to csproject
+
+  if(!$conn)
+  {
+  	echo "success";
+  }
 
 ?>

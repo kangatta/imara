@@ -51,3 +51,7 @@
         </p>
 		
       </main>
+      <br>
+      <?php 
+        //include('footer.php');
+      ?>

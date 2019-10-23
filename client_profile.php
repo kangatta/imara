@@ -33,20 +33,20 @@
         <!--left half-->
     	<div class="row">
 
-    		<div class="col-md-4" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:100%; margin-left:100px; box-shadow: 10px 10px 8px #888888; background-color: white;">
+    		<div class="col-md-4" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:100%; margin-left:450px; box-shadow: 10px 10px 8px #888888; background-color: white;">
           <form action="results.php" method="POST">
             <center><h3>BMI Counter</h3></center>
           <div class="form-group">
            <label for="name">Age</label>
-           <input class="form-control" name="age"  type="text">
+           <input class="form-control" name="age"  type="text" required=" ">
          </div>
          <div class="form-group">
            <label for="email">Height(cm)</label>
-           <input class="form-control" name="height" type="text">
+           <input class="form-control" name="height" type="text" required=" ">
          </div>
          <div class="form-group">
            <label for="username">Mass(kg)</label>
-           <input class="form-control" name="mass"  type="text">
+           <input class="form-control" name="mass"  type="text" required=" ">
          </div>
          <div class="form-group">
            <label for="usertype">Activity rate</label>
@@ -64,6 +64,9 @@
         </form>
         </div>  
             
-    	</div><br>
+    	</div><br><br><br><br><br>
+       <?php 
+        include('footer.php');
+      ?>
     </body>
 </html>

@@ -51,6 +51,7 @@
         <?php 
         //include ('sesh.php');
        include ('head.php');
+
         ?>
 
 
@@ -58,8 +59,11 @@
 <div class="content" class="col-md-4" style="width:850px; margin-left: 250px;">
   <div class="row" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:cover; width:800px; float:center; margin-left:9px; box-shadow: 10px 10px 8px #888888; background-color: white;">
            	
-            
-                <div class="col-md-3">
+            <?php 
+             $query="SELECT name FROM protein ORDER BY RAND() LIMIT 1";
+              $res=mysqli_query($conn, $query);
+            ?>
+                <div class="col-md-4">
     		<div class="form-group">
           
                 <h2>Breakfast</h2>
@@ -67,21 +71,14 @@
                 <input class="form-control" name="age"  type="text" value="<?php echo ($res);?>">
                 </div>
                </div>
-                 <div class="col-md-3">
-    			<div class="form-group">
-    				<br><br>
-                <label for="name">Proteins</label>
-                <input class="form-control" name="age"  type="text">
-                </div>
-               </div>
-               <div class="col-md-3">
+               <div class="col-md-4">
     			<div class="form-group">
     				<br><br>
                 <label for="name">Carbohydrates</label>
                 <input class="form-control" name="age"  type="text">
                 </div>
                </div>
-               <div class="col-md-3">
+               <div class="col-md-4">
     			<div class="form-group">
     				<br><br>
                 <label for="name">Vitamins</label>
@@ -157,11 +154,11 @@
   <div class="row" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:cover; width:800px; float:center; margin-left:9px; box-shadow: 10px 10px 8px #888888; background-color: white;">
            	
             <?php
-            require ('connection.php');
-            $query="SELECT * FROM `details` WHERE phone >= 707112345";
+            require('connection.php');
+            $query="SELECT * FROM `protein` WHERE food_id <= 7";
             $res=mysqli_query($conn, $query);
              ?>
-                <div class="col-md-3">
+                <div class="col-md-4">
     		<div class="form-group">
                 <h2>Breakfast</h2>
                 <label for="name">Proteins</label>
@@ -171,89 +168,134 @@
               </select>
                 </div>
                </div>
-                 <div class="col-md-3">
+
+               <?php
+            $query="SELECT * FROM `breakfast_carbs` WHERE food_id <= 7";
+            $res=mysqli_query($conn, $query);
+             ?>
+                 <div class="col-md-4">
     			<div class="form-group">
     				<br><br>
                 <label for="name">Carbohydrates</label>
-                <select class="form-control" name="age"  type="text"></select>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
                 </div>
                </div>
-               <div class="col-md-3">
+
+                 <?php
+            $query="SELECT * FROM `vitamins` WHERE food_id >= 0";
+            $res=mysqli_query($conn, $query);
+             ?>
+               <div class="col-md-4">
     			<div class="form-group">
     				<br><br>
                 <label for="name">Vitamins</label>
-                <select class="form-control" name="age"  type="text"></select>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
                 </div>
                </div>
-               <div class="col-md-3">
-    			<div class="form-group">
-    				<br><br>
-                <label for="name">Total calories</label>
-                <input class="form-control" name="age"  type="text">
-                </div>
-               </div>
+          
     		 
 
     		<!---->
-    		<div class="col-md-3">
-    			<div class="form-group">
-    				<h2>Lunch</h2>
+    		<?php
+            $query="SELECT * FROM `protein` WHERE food_id >= 7";
+            $res=mysqli_query($conn, $query);
+             ?>
+                <div class="col-md-4">
+        <div class="form-group">
+                <h2>Lunch</h2>
                 <label for="name">Proteins</label>
-                <select class="form-control" name="age"  type="text"></select>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
                 </div>
                </div>
-                 <div class="col-md-3">
-    			<div class="form-group">
-    				<br><br>
-                <label for="name">Proteins</label>
-                <select class="form-control" name="age"  type="text"></select>
-                </div>
-               </div>
-               <div class="col-md-3">
-    			<div class="form-group">
-    				<br><br>
+                 
+                 <?php
+            $query="SELECT * FROM `breakfast_carbs` WHERE food_id >= 7";
+            $res=mysqli_query($conn, $query);
+             ?>
+                 <div class="col-md-4">
+          <div class="form-group">
+            <br><br>
                 <label for="name">Carbohydrates</label>
-                <select class="form-control" name="age"  type="text"></select>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
                 </div>
                </div>
-               <div class="col-md-3">
-    			<div class="form-group">
-    				<br><br>
+
+               <?php
+            $query="SELECT * FROM `vitamins` WHERE food_id >= 0";
+            $res=mysqli_query($conn, $query);
+             ?>
+               <div class="col-md-4">
+          <div class="form-group">
+            <br><br>
                 <label for="name">Vitamins</label>
-                <input class="form-control" name="age"  type="text">
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
                 </div>
                </div>
     		
     		<!---->
 
-    		 <div class="col-md-3">
-    			<div class="form-group">
-    				<h2>Supper</h2>
+    		 <?php
+            $query="SELECT * FROM `protein` WHERE food_id >= 7";
+            $res=mysqli_query($conn, $query);
+             ?>
+                <div class="col-md-4">
+        <div class="form-group">
+                <h2>Supper</h2>
                 <label for="name">Proteins</label>
-                <select class="form-control" name="age"  type="text"></select>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
                 </div>
                </div>
-                 <div class="col-md-3">
-    			<div class="form-group">
-    				<br><br>
-                <label for="name">Proteins</label>
-                <select class="form-control" name="age"  type="text"></select>
-                </div>
-               </div>
-               <div class="col-md-3">
-    			<div class="form-group">
-    				<br><br>
+                 
+                 <?php
+            $query="SELECT * FROM `breakfast_carbs` WHERE food_id >= 7";
+            $res=mysqli_query($conn, $query);
+             ?>
+                 <div class="col-md-4">
+          <div class="form-group">
+            <br><br>
                 <label for="name">Carbohydrates</label>
-                <select class="form-control" name="age"  type="text"></select>
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
                 </div>
                </div>
-               <div class="col-md-3">
-    			<div class="form-group">
-    				<br><br>
+
+               <?php
+            $query="SELECT * FROM `vitamins` WHERE food_id >= 0";
+            $res=mysqli_query($conn, $query);
+             ?>
+               <div class="col-md-4">
+          <div class="form-group">
+            <br><br>
                 <label for="name">Vitamins</label>
-                <input class="form-control" name="age"  type="text">
+                <select class="form-control"><?php while($row1=mysqli_fetch_array($res)):;?>
+                <option><?php echo $row1[1];?></option>
+              <?php endwhile;?>
+              </select>
                 </div>
                </div>
+        
+        <!---->
+
     		</div><br>
 </div>
 <script>
@@ -273,5 +315,7 @@ for (i = 0; i < coll.length; i++) {
 }
 </script>
 
+
 </body>
+
 </html>
