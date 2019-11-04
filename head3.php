@@ -19,7 +19,7 @@
            </li>
            </li>
            <li class="nav-item" style="margin-left: 10px;">
-             <a href="weightloss.php" class="nav-link <?php if(basename($_SERVER['PHP_SELF'])=="packages.php") {echo "active";} else {echo "";} ?>">Recommended package</a>
+             <a href="weightloss.php" class="nav-link <?php if(basename($_SERVER['PHP_SELF'])=="weightloss.php") {echo "active";} else {echo "";} ?>">Recommended package</a>
            </li>
            </li>
            <li class="nav-item" style="margin-left: 10px;">

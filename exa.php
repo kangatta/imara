@@ -52,11 +52,11 @@ while($row=mysqli_fetch_array($res))
 if($row['usertype']=='Admin')
 {
 $_SESSION["username"]=$username;
-header("Location:admin.php");
+header("Location:sam.php");
 }
 elseif($row['usertype']=='client'){
 $_SESSION["username"]=$username;
-header("Location:client_profile.php");
+header("Location:sam.php");
 }
     elseif($row['usertype']=='trainer'){
 $_SESSION["username"]=$username;

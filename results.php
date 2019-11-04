@@ -1,6 +1,6 @@
-
-<?php
-  session_start(); 
+<?php 
+session_start();
+$bmi=$_SESSION['cake'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,26 +31,12 @@
        include ('head.php');
         ?>
         <!--left half-->
-    	<div class="row">
+      <div class="row">
 
-    		<div class="col-md-4" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:100%; margin-left:100px; box-shadow: 10px 10px 8px #888888; background-color: white;">
-          <form action="" method="POST"> 
+        <div class="col-md-4" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:100%; margin-left:100px; box-shadow: 10px 10px 8px #888888; background-color: white;">
          <div class="form-group">
-          <center><h2>BMI Results</h2></center>
-         <?php
-         $bmi='';
-        if(isset($_POST['submit']))
-        {
-          $h=$_POST['height'];
-          $m=$_POST['mass'];
-         
-            //calculator
-            if($h!='')
-            {
-              $bmi1=($m/($h*$h))*10000;
-              $bmi=(round($bmi1, 2));
-            }
-            if ($bmi<2)
+          <?php
+if ($bmi<2)
             {
               
               echo "Status:<br>
@@ -85,6 +71,7 @@
               <input class='form-control' type='text' value='6 Weeks'/><br>";
               echo "Required Calories:<br>
               <input class='form-control' type='text' value='2500 Calories'/>";
+              
           }
           else
           {
@@ -100,16 +87,31 @@
               <input class='form-control' type='text' value='2000 Calories'/>";
 
           }
-        }
-        ?>
-         </div> <br>
-        <div>
+?>
+<form action="" method="POST">
+   <div>
           <br>
-           <center><button class="btn btn-primary"  type="submit" name="submit" >View Package</button></center><br>
+           <center><button class="btn btn-primary"  type="submit" name="action" >View Package</button></center><br>
+           <?php 
+           if(isset($_POST['action']))
+           {
+            if($bmi>=18.5 && $bmi<=25.5)
+            {
+              header("Location:maintain.php");
+                exit();
+            }
+            else
+            {
+                header("Location:weightloss.php");
+                exit();
+            }
+           }
+           ?>
          </div>
-        </form>
+</form>
+          
         </div>  
-            
-    	</div><br>
+      </div> 
+      </div><br>
     </body>
 </html>

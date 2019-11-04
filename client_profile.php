@@ -1,6 +1,7 @@
 
-<?php
-  session_start(); 
+<?php 
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,10 +32,9 @@
        include ('head.php');
         ?>
         <!--left half-->
-    	<div class="row">
-
-    		<div class="col-md-4" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:100%; margin-left:450px; box-shadow: 10px 10px 8px #888888; background-color: white;">
-          <form action="results.php" method="POST">
+      <div class="row">
+        <div class="col-md-4" style="border:.0px solid; border-radius:5px; margin-top: 50px; height:100%; margin-left:450px; box-shadow: 10px 10px 8px #888888; background-color: white;">
+          <form action=" " method="POST" target="_blank">
             <center><h3>BMI Counter</h3></center>
           <div class="form-group">
            <label for="name">Age</label>
@@ -59,12 +59,33 @@
          
         <div>
           <br>
-           <center><button class="btn btn-primary"  type="submit" name="submit" >Calculate</button></center><br>
-         </div>
+           <center><button class="btn btn-primary"  type="submit" name="submit">Calculate</button></center><br>
+           </div>
+           
+           <?php
+       $bmi='';
+        if(isset($_POST['submit']))
+        {
+          $h=$_POST['height'];
+          $m=$_POST['mass'];
+         
+            //calculator
+            if($h!='')
+            {
+              $bmi1=($m/($h*$h))*10000;
+              $bmi=(round($bmi1, 2));
+            }
+            echo "BMI score:<br>
+              <input class='form-control' type='text' value='$bmi'/> <br>";
+              $_SESSION['cake']="$bmi";
+        }
+           ?>
+           <a href="results.php" title="">Check your BMI status</a>
+           
         </form>
         </div>  
             
-    	</div><br><br><br><br><br>
+      </div><br><br><br><br><br>
        <?php 
         include('footer.php');
       ?>
